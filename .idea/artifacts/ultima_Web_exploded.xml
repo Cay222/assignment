@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ultima:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ultima_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ultima/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ultima" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/jstl-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/servlet-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/standard-1.1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/mysql-connector-java-5.1.49.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/commons-io-2.11.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/ultima/web/WEB-INF/lib/commons-fileupload-1.4.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

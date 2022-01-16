@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mapper 负责管理 MyBatis 要执行的 SQL 语句 ，也负责将 ResultSet 映射成 Java 对象，
+    相当于 DAO 组件-->
+<!-- Mapper的命名空间，是该 Mapper 的唯一标识 ，一般设置该属性值为该文件所在的包 + 文件名 -->
+<mapper namespace="mapper.NewsMapper">
+    <!-- 用 insert 元素定义一条 insert SQL 语句，id 指定这条语句的名称-->
+    <!--useGeneratedKeys 指定要使用数据库自动生成的主键值，keyProperty="id" 指定将主键值传给参数对象的 id 属性 -->
+    <insert id="saveNews" useGeneratedKeys="true" keyProperty="id">
+        insert into news_inf values(null, #{title}, #{content})
+    </insert>
+    <update id="updateNews">
+        update news_inf set news_title=#{title}, news_content=#{content}
+        where news_id=#{id}
+    </update>
+    <delete id="deleteNews">
+        delete from news_inf
+        where news_id=#{id}
+    </delete>
+    <!-- resultType 指定将每行记录映射成什么 Java 对象 -->
+    <select id="getNews" resultType="entity.News">
+        select news_id id, news_title title, news_content content
+        from news_inf where news_id=#{id}
+    </select>
+    <!-- 根据查询结果定义 Java 类，
+        开发 Mapper 组件：Mapper 组件 = Mapper 接口 + XML 文档（或注解）
+        调用 SqlSession 的 getMapper() 方法获取 Mapper 组件
+        调用 Mapper 组件的方法操作数据库 -->
+</mapper>
