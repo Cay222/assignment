@@ -20,6 +20,8 @@ public class ServletLogin extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         String num = request.getParameter("ID");
         String pwd = request.getParameter("pwd");
         int roleID = Integer.parseInt(request.getParameter("role"));
@@ -45,19 +47,20 @@ public class ServletLogin extends HttpServlet {
                             request.getRequestDispatcher("student/student.jsp").forward(request, response);
                         }
                     } else {
-                        request.setAttribute("massage", "角色不正确！！");
+                        request.setAttribute("massage", "wrong user!!");
                         request.getRequestDispatcher("login/login.jsp").forward(request, response);
                     }
                 } else {
-                    request.setAttribute("massage", "密码不正确！！");
+                    request.setAttribute("massage", "wrong password!!");
                     request.getRequestDispatcher("login/login.jsp").forward(request, response);
                 }
             } else {
-                request.setAttribute("massage", "用户不存在！！");
+                request.setAttribute("massage", "illegal user!!");
                 request.getRequestDispatcher("login/login.jsp").forward(request, response);
             }
         } else {
-            request.setAttribute("massage", "用户不存在！！");
+
+            request.setAttribute("massage", "illegal user!!");
             request.getRequestDispatcher("login/login.jsp").forward(request, response);
         }
     }

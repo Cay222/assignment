@@ -156,7 +156,7 @@ public class ScoreDaoImpl implements ScoreDao {
 
     public PageBean scoreListPage(int pageNo, int pageCount, String stuNum) {
         int totalCount = 0;
-        List<ScoreCou> list = new ArrayList<ScoreCou>();
+        List<ScoreCou> list = new ArrayList<>();
         String sql = "select score.course_name,course_credit,course_hours,course_teacher,major,coursedate,score_grade "
                 + "from score,course where score.course_name=course.course_name and stu_num='"
                 + stuNum

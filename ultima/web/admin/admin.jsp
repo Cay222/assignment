@@ -162,11 +162,11 @@
             </li>
         </ul>
     </div>
-<%--    <div class="div_right">
+    <div class="div_right">
         <iframe frameBorder="0" id="main"
                 name="mainRight" scrolling="yes" src="main.jsp"
                 style="HEIGHT:130%; VISIBILITY: inherit; WIDTH: 100%; Z-INDEX: 1"></iframe>
-    </div>--%>
+    </div>
 </div>
 
 <script src="js/jquery-3.3.1.min.js"></script>

@@ -32,10 +32,10 @@ public class ServletEditStudentInfo extends HttpServlet{
 				department);
 		int rs=studentServiceImpl.editStu(student);
 		if(rs>0){
-			request.setAttribute("msg", "修改成功！！");
+			request.setAttribute("msg", "success!!");
 			findStu.doGet(request, response);
 		}else{
-			request.setAttribute("msg", "修改失败！！");
+			request.setAttribute("msg", "failed!!");
 			request.getRequestDispatcher("student/editStudentInfo.jsp").forward(request, response);
 		}
 		

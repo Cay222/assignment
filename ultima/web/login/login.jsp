@@ -16,6 +16,7 @@
     <base href="<%=basePath%>">
 
     <title>登陆</title>
+    <meta charset="UTF-8">
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -133,7 +134,7 @@
 <div class="div_body">
     <div id="_body">
         <h3 class="msg" style="cursor:default;color:red">${massage }</h3>
-        <form action="ServletLogin" method="post" onsubmit="return checked(this)">
+        <form action="ServletLogin" method="get" onsubmit="return checked(this)">
             <h4>学生成绩管理系统</h4>
             <table>
                 <tr>

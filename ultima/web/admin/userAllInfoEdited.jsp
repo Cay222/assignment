@@ -101,7 +101,7 @@
                     </td>
                 </tr>
             </c:forEach>
-            <tr>
+<%--            <tr>
 
                 <td colspan="6">
 
@@ -118,7 +118,7 @@
                         type="submit" value="跳转"/> 共有 ${list.totalPage} 页
                 </td>
 
-            </tr>
+            </tr>--%>
         </table>
 
     </div>
