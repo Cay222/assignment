@@ -78,7 +78,7 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     public List findOne(int courseID) {
-        List<Course> list = new ArrayList<Course>();
+        List<Course> list = new ArrayList<>();
         String sql = "select * from course where course_id=" + courseID;
         ResultSet rs = dbCon.find(sql);
         try {

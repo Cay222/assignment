@@ -18,6 +18,7 @@ public class ServletEditUser extends HttpServlet{
 	
 	private User user;
 	private ServletFindAllUser servletFindAllUser=new ServletFindAllUser();
+	private ServletFindAllUserEdited servletFindAllUserEdited = new ServletFindAllUserEdited();
 	private UserServiceImpl userServiceImpl=new UserServiceImpl();
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
@@ -26,17 +27,28 @@ public class ServletEditUser extends HttpServlet{
 		String userName=request.getParameter("userName");
 		String pwd=request.getParameter("password");
 		String phone=request.getParameter("phone");
-		int roleID=Integer.parseInt(request.getParameter("roleID"));
+		String id = request.getParameter("roleID");
+		int roleID = 0;
+		if (id != null && "".equals(id.trim())) {
+			roleID = Integer.parseInt(id);
+		}
+//		int roleID=Integer.parseInt(request.getParameter("roleID"));
 		user=new User(userNum,userName,pwd,phone,roleID);
 		int rs=userServiceImpl.editUser(user);
-		if(rs>0){
+/*		if(rs>0){
 			request.setAttribute("msg", "修改成功！！");
 			servletFindAllUser.doGet(request, response);
 		}else{
 			request.setAttribute("msg", "修改失败！！");
-			servletFindAllUser.doGet(request, response);
-		//	request.getRequestDispatcher("admin/selectPwd.jsp").forward(request, response);
+			servletFindAllUser.doGet(request, response);*/
+		if (rs >0) {
+			request.setAttribute("msg", "修改成功");
+			servletFindAllUserEdited.doGet(request, response);
+		} else {
+			request.setAttribute("msg","修改失败");
+			servletFindAllUserEdited.doGet(request, response);
 		}
+		//	request.getRequestDispatcher("admin/selectPwd.jsp").forward(request, response);
 		/*int userID=Integer.parseInt(request.getParameter("userID"));
 		List rs=userDaoImpl.selectOneUser(userID);
 		request.setAttribute("list", rs);

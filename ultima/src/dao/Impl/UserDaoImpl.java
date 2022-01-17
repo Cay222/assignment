@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public List selectOneUser(int userID) {
-        List<User> list = new ArrayList<User>();
+        List<User> list = new ArrayList<>();
         String sql = "select * from user where user_id=" + userID;
         ResultSet rs = dbCon.find(sql);
         try {

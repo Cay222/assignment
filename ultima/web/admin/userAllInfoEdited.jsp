@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: 18751
-  Date: 2022-01-13
-  Time: 9:05
+  Date: 2022-01-17
+  Time: 12:15
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- 保证可以使用绝对路径 --%>
 <%
@@ -90,7 +90,7 @@
                 <td>身份</td>
                 <td>操作</td>
             </tr>
-            <c:forEach var="list" items="${requestScope.list.getPbjs() }">
+            <c:forEach var="list" items="${requestScope.list}">
                 <tr>
                     <td>${list.getUserNum() }</td>
                     <td>${list.getUserName() }</td>

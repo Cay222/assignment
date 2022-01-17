@@ -197,9 +197,10 @@ public class ScoreDaoImpl implements ScoreDao {
 
     public PageBean scoreListPage(int pageNo, int pageCount) {
         int totalCount = 0;
-        List<Score> list = new ArrayList<Score>();
+        List<Score> list = new ArrayList<>();
         String sql = "select * from score limit " + ((pageNo - 1) * pageCount)
                 + "," + pageCount;
+        // COUNT(*)计算表中总的行数，不管某列有数值或者为空值
         String sqlCount = "select count(*) from score";
         ResultSet rs = dbCon.find(sql);
         try {
@@ -229,7 +230,7 @@ public class ScoreDaoImpl implements ScoreDao {
     }
 
     public List findStuOne(String stuNum, String courseName) {
-        List<ScoreCou> list = new ArrayList<ScoreCou>();
+        List<ScoreCou> list = new ArrayList<>();
         String sql = "select score.course_name,course_credit,course_hours,course_teacher,major,coursedate,score_grade "
                 + "from score,course where score.course_name=course.course_name and stu_num='"
                 + stuNum + "' and course.course_name='" + courseName + "'";
@@ -293,7 +294,7 @@ public class ScoreDaoImpl implements ScoreDao {
 
     public PageBean selectStuScore(int pageNo, int pageCount, Score score) {
         int totalCount = 0;
-        List<Score> list = new ArrayList<Score>();
+        List<Score> list = new ArrayList<>();
         String sql = "select * from score where stu_num like '%"
                 + score.getStuNum() + "%' and course_name like '%"
                 + score.getCourseName() + "%' and stu_name like '%"
@@ -337,7 +338,7 @@ public class ScoreDaoImpl implements ScoreDao {
     public PageBean selectTeaScore(int pageNo, int pageCount, String teaName,
                                    Score score) {
         int totalCount = 0;
-        List<Score> list = new ArrayList<Score>();
+        List<Score> list = new ArrayList<>();
         String sql = "select score.score_id,score.stu_num,score.stu_name,score.stu_class,score.course_name,score.score_grade,score.major from score,course where score.course_name=course.course_name and course.course_teacher='"
                 + teaName
                 + "'  and score.stu_name like '%"

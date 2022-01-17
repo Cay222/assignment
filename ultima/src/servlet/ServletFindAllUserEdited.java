@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import service.Impl.UserServiceImpl;
 
 import dao.Impl.UserDaoImpl;
-
-public class ServletFindAllUser extends HttpServlet {
+@WebServlet("/servletFindAllUserEdited")
+public class ServletFindAllUserEdited extends HttpServlet {
 
     private UserServiceImpl userServiceImpl = new UserServiceImpl();
 
@@ -21,7 +22,7 @@ public class ServletFindAllUser extends HttpServlet {
             throws ServletException, IOException {
         List rs = userServiceImpl.findAll();
         request.setAttribute("list", rs);
-        request.getRequestDispatcher("admin/userAllInfo.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/userAllInfoEdited.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
